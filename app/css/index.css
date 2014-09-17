@@ -1,0 +1,111 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: \5FAE\8F6F\96C5\9ED1,\9ED1\4F53,\6587\6CC9\9A7F\6B63\9ED1\4F53,arial;
+}
+#content{}
+.wecome-wrp{
+	width: 600px; height: 650px; background-color: #feff1b;
+}
+@-webkit-keyframes fall{
+	0% {
+		bottom:750px;
+	}
+	50% {
+		bottom:350px;
+	}
+	60% {
+		bottom:350px;
+		width: 110px;
+		height: 60px;
+		left:245px;
+	}
+	75% {
+		bottom:370px;
+		width: 110px;
+		height: 60px;
+		left:245px;
+	}
+	90% {
+		bottom:350px;
+		width: 110px;
+		height: 60px;
+		left:245px;
+	}
+	100% {
+		bottom:350px;
+	}
+}
+@-webkit-keyframes bottom-slide{
+	0%{}
+	100%{
+		bottom: 250px;
+	}
+}
+.wecome-wrp .hmbb-avatar{
+	position: absolute;
+	left: 250px;
+	background: url("../image/haimianbaobao_t.png") no-repeat center center scroll transparent; 
+	background-size: 100% 100%; 
+	display: block;
+	width: 100px;
+	height: 95px;
+	-webkit-animation: fall 1s ease-in 0 1 normal forwards;
+	animation: fall 1s ease-in 0 1 normal forwards;
+}
+.wecome-wrp .greetings{
+	position: absolute;
+	bottom: -50px;
+	width: 100%;
+	text-align: center;
+	font-size: 25px;
+	color: green;
+	-webkit-animation: bottom-slide .5s ease-in-out .8s 1 normal forwards;
+	animation: bottom-slide .5s ease-in-out .8s 1 normal forwards;
+}
+@media (min-width: 600px) {
+    .form-horizontal .control-label {
+		padding-top: 7px;
+		margin-bottom: 0;
+		text-align: right;
+	}
+	.col-sm-1,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-10,.col-sm-11,.col-sm-12 {float:left}
+	.col-sm-12 {width: 100%}
+	.col-sm-11 {width: 91.66666667%}
+	.col-sm-10 {width: 83.33333333%}
+	.col-sm-9 {width: 75%}
+	.col-sm-8 {width: 66.66666667%}
+	.col-sm-7 {width: 58.33333333%}
+	.col-sm-6 {width: 50%}
+	.col-sm-5 {width: 41.66666667%}
+	.col-sm-4 {width: 33.33333333%}
+	.col-sm-3 {width: 25%}
+	.col-sm-2 {width: 16.66666667%}
+	.col-sm-1 {width: 8.33333333%}
+}
+.study-wrp .study-title{
+	text-align: center;
+}
+.study-wrp .study-group{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 15px 15px 0;
+	margin: 15px auto;
+	background-color: #eee;
+}
+.study-wrp .add-study-group{
+	float: right;
+}
+.study-wrp .btn-wrp{
+	clear: both;
+	text-align: center;
+}
+.study-wrp .btn-wrp .save-study{
+	margin-right: 30px;
+}
+
+
+
+
+
+
