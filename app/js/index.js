@@ -1,4 +1,3 @@
-// window.location.href = "https://www.laiwang.com/qr.htm";
 // document.write(process.version + '|1');
 // console.log(process);
 /*var http = require('http');    
