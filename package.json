@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "mongoose": "^3.8.12",
-    "underscore": "^1.6.0"
+    "underscore": "^1.6.0",
+    "segment": "^0.0.5"
   }
 }

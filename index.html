@@ -15,18 +15,18 @@
       <h4>haimianbaobao数据库中有以下人员：</h4>
     </div> -->
     <!-- 欢迎 -->
-    <div class="wecome-wrp" style="display:none;">
+    <div class="wecome-wrp">
       <span class="hmbb-avatar"></span>
       <div class="greetings">welcome u!</div>
     </div>
     <!-- 学习 -->
-    <div class="study-wrp container" style="display:none;">
+    <div class="study-wrp container">
       <h4 class="study-title">来吧，教我几句话吧^.^</h4>
       <!-- 一组对话 -->
       <div class="study-group form-horizontal">
         <!-- 问题 -->
         <div class="form-group">
-          <label class="col-sm-2 control-label">对:</label>
+          <label class="col-sm-2 control-label">问:</label>
           <div class="col-sm-10">
             <input type="text" class="form-control study-question" placeholder="">
           </div>
@@ -41,12 +41,41 @@
       </div>
       <button type="button" class="btn btn-link add-study-group"> + 添加一组新对话</button>
       <div class="btn-wrp">
-        <button type="button" class="btn btn-danger btn-lg save-study">保存内容</button>
-        <button type="button" class="btn btn-success btn-lg play-game">开始玩耍</button>
+        <button type="button" class="btn btn-danger save-study">保存内容</button>
+        <button type="button" class="btn btn-success play-game">开始玩耍</button>
       </div>
     </div>
     <!-- 对话 -->
-    <div class="chat-wrp"></div>
+    <div class="chat-wrp">
+      <div class="chat-items-wrp">
+        <ul class="chat-items">
+          <!-- <li class="chat-item">
+            <span class="bubble">哈哈大笑</span>
+          </li>
+          <li class="chat-item me-sent">
+            <span class="bubble">哇哇大哭</span>
+          </li> -->
+        </ul>
+      </div>
+      <div class="send-msg-box">
+        <div class="top-bar"></div>
+        <div class="send-box">
+          <textarea name="" id="msg-box" class="form-control msg-box"></textarea>
+        </div>
+        <div class="bottom-bar">
+          <ul class="tools-wrp">
+            <li class="tool">⊙▂⊙</li>
+            <li class="tool">⊙０⊙</li>
+            <li class="tool">⊙︿⊙</li>
+            <li class="tool">⊙ω⊙</li>
+            <li class="tool">⊙﹏⊙</li>
+            <li class="tool">⊙△⊙</li>
+            <li class="tool">⊙▽⊙</li>
+          </ul>
+          <button type="button" class="btn btn-success" id="send-msg">发送</button>
+        </div>
+      </div>
+    </div>
   </div>
   <script type="text/javascript" src="app/js/index.js"></script>
 </body>
