@@ -1,6 +1,10 @@
 ### 学习型机器人 -- 海绵宝宝
 
-#### 目标学习点：
+#### 功能
+- 先教机器人学几句话
+- 再与机器人对话
+
+#### 学习目标点：
 - node-webkit
 - mongodb
 
@@ -11,4 +15,4 @@
 > [mongodb文档](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)
   
   
-*暂时只考虑Mac OS X*
+* 暂时只考虑Mac OS X *
