@@ -75,15 +75,15 @@ $('body').on('click', '.save-study', function(){
 			_aItem = $(v).find('.study-answer'),
 			_a = _aItem.val();
 		if(!!_q){
-			_q = '^' + _.map(segment.doSegment(_q), function(v, k){
+			_q = _.map(segment.doSegment(_q), function(v, k){
 				return v.w;
 			}).join('^');
 			//先去查数据库中是否有相同的问题，如果有，则更新答案；如果没有，就写一条新记录
 			KnowledgeModel.find({'question': _q}, function(err, q){
 				if(q.length){
-					KnowledgeModel.update({'_id': q[0]._id}, {$set:{'answer': _a}, function(err, ques){
+					KnowledgeModel.update({'_id': q[0]._id}, {$set:{'answer': _a}}, function(err, ques){
 						console.log(err);
-					}});
+					});
 				}else{
 					var knowledge = new KnowledgeModel({'question': _q, 'answer': _a});
 					knowledge.save();
@@ -93,6 +93,7 @@ $('body').on('click', '.save-study', function(){
 			_aItem.val('');
 			$('.study-wrp').fadeOut();
 			$('.chat-wrp').show();
+			$('#msg-box').focus();
 		}
 	});
 });
@@ -100,19 +101,34 @@ $('body').on('click', '.save-study', function(){
 $('body').on('click', '.play-game', function(){
 	$('.study-wrp').fadeOut();
 	$('.chat-wrp').show();
+	$('#msg-box').focus();
 });
 
 //发消息
 $('body').on('click', '#send-msg', function(){
 	var msg = $('#msg-box').val();
+	var sameLength = 0; //比较数据库的question分词数组，与msg的分词数组的相同词的长度
+	var ans = 'sorry, i have no answer.';//sameLength最长的那个数据库记录的答案
 	if(msg){
 		//把消息放入到对话窗口中
 		$('.chat-items').append('<li class="chat-item me-sent"><span class="bubble">' + msg + '</span></li>');
 		$('#msg-box').val('');
 		$('.chat-items-wrp').scrollTop($('.chat-items').height() - $('.chat-items-wrp').height());
 		var KnowledgeModel = mongoose.model('Knowledge');
-		KnowledgeModel.find({'question': msg}, function(err, answer){
-			$('.chat-items').append('<li class="chat-item"><span class="bubble">' + (answer.length ? answer[0].answer : '对不起，您还没有告诉我应该怎么回答') + '</span></li>');
+		KnowledgeModel.find(function(err, kn){
+			if(kn.length){
+				var msgSeg = _.map(segment.doSegment(msg), function(v, k){
+					return v.w;
+				});
+				_.each(kn, function(v, k){
+					var l = _.intersection(msgSeg, v.question.split('^')).length;
+					if(l >=3 && l >= sameLength){ //至少要有3个相同的词，才能认为找对了
+						sameLength = l;
+						ans = v.answer;
+					}
+				});
+			}
+			$('.chat-items').append('<li class="chat-item"><span class="bubble">' + ans + '</span></li>');
 			$('.chat-items-wrp').scrollTop($('.chat-items').height() - $('.chat-items-wrp').height());
 		});
 	}
