@@ -15,4 +15,4 @@
 > [mongodb文档](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)
   
   
-* 暂时只考虑Mac OS X *
+*暂时只考虑Mac OS X*
