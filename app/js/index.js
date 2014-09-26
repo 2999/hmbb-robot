@@ -103,6 +103,11 @@ $('body').on('click', '.play-game', function(){
 	$('.chat-wrp').show();
 	$('#msg-box').focus();
 });
+//聊天场景，返回学习
+$('body').on('click', '#go-back', function(){
+	$('.chat-wrp').hide();
+	$('.study-wrp').show();
+});
 
 //发消息
 $('body').on('click', '#send-msg', function(){
@@ -121,8 +126,9 @@ $('body').on('click', '#send-msg', function(){
 					return v.w;
 				});
 				_.each(kn, function(v, k){
-					var l = _.intersection(msgSeg, v.question.split('^')).length;
-					if(l >=3 && l >= sameLength){ //至少要有3个相同的词，才能认为找对了
+					var queSeg = v.question.split('^');
+					var l = _.intersection(msgSeg, queSeg).length;
+					if(l / queSeg.length > .4 && l >= sameLength){ //相同的词在整句话中占比大于40%，才能认为找对了
 						sameLength = l;
 						ans = v.answer;
 					}

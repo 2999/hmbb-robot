@@ -12,7 +12,7 @@
       "fullscreen" : false,
       "kiosk" : false,
       "frame" : true,
-      "toolbar": true,
+      "toolbar": false,
       "width": 600,
       "height": 650,
       "position": "center",
